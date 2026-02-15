@@ -9,24 +9,27 @@ const closeCard = document.getElementById("closeCard");
 let built = false;
 
 heartBtn.addEventListener("click", () => {
-  // Cambia a pantalla de flores
-  intro.hidden = true;
-  flowersScreen.hidden = false;
+  // animar salida del intro
+  intro.classList.add("fadeOut");
 
-  // Dispara animación de construcción
-  // (se añade en el siguiente frame para asegurar que el DOM ya cambió)
-  requestAnimationFrame(() => {
-    flowersScreen.classList.add("build");
-  });
+  // después ocultar intro y mostrar flores
+  setTimeout(() => {
+    intro.hidden = true;
+    flowersScreen.hidden = false;
+    flowersScreen.classList.add("fadeIn");
 
-  built = true;
+    requestAnimationFrame(() => {
+      flowersScreen.classList.add("build");
+    });
+
+    built = true;
+  }, 350);
 });
 
 bouquetBtn.addEventListener("click", () => {
   if (!built) return;
 
   overlay.classList.add("active");
-  // Trigger animation
   requestAnimationFrame(() => {
     overlay.classList.add("showCard");
   });
@@ -34,7 +37,7 @@ bouquetBtn.addEventListener("click", () => {
 
 function closeOverlay(){
   overlay.classList.remove("showCard");
-  overlay.hidden = true;
+  overlay.classList.remove("active");
 }
 
 closeCard.addEventListener("click", closeOverlay);
@@ -48,4 +51,5 @@ overlay.addEventListener("click", (e) => {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !overlay.hidden) closeOverlay();
 });
+
 
