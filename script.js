@@ -26,6 +26,10 @@ heartBtn.addEventListener("click", () => {
   }, 350);
 });
 
+    built = true;
+  }, 350);
+});
+
 bouquetBtn.addEventListener("click", () => {
   if (!built) return;
 
@@ -51,5 +55,6 @@ overlay.addEventListener("click", (e) => {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !overlay.hidden) closeOverlay();
 });
+
 
 
