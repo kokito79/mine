@@ -25,7 +25,7 @@ heartBtn.addEventListener("click", () => {
 bouquetBtn.addEventListener("click", () => {
   if (!built) return;
 
-  overlay.hidden = false;
+  overlay.classList.add("active");
   // Trigger animation
   requestAnimationFrame(() => {
     overlay.classList.add("showCard");
@@ -48,3 +48,4 @@ overlay.addEventListener("click", (e) => {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !overlay.hidden) closeOverlay();
 });
+
