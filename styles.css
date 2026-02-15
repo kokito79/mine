@@ -390,3 +390,12 @@ body{
   .flower{ width:118px; height:118px; opacity:1 }
   .flower .center{ width:34px; height:34px }
 }
+.overlay {
+  display: none;
+}
+
+.overlay.active {
+  display: grid;
+}
+
+
